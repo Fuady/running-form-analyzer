@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+build/ dist/ *.egg-info/
+
+# Virtual environments
+venv/ .venv/ env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large files — use DVC for versioning)
+data/raw/videos/
+data/raw/poses/
+data/processed/keypoints/
+data/processed/sequences/*.npy
+!data/processed/features/*.csv
+!data/annotations/*.csv
+
+# Models
+models/classifier/*.pt
+models/*.pkl
+!models/.gitkeep
+!models/classifier/.gitkeep
+
+# MLflow
+mlruns/ mlartifacts/
+
+# Environment
+.env *.env.local
+
+# IDE
+.vscode/ .idea/ *.swp .DS_Store Thumbs.db
+
+# Testing
+.pytest_cache/ .coverage htmlcov/ coverage.xml
+
+# Outputs
+outputs/ *.mp4 *.avi
+!docs/eda_report/.gitkeep
+!docs/evaluation/.gitkeep
