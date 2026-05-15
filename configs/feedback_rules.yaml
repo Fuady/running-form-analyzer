@@ -1,0 +1,67 @@
+# Biomechanical feedback rules for running form correction
+# ideal_low / ideal_high = acceptable range
+# low_msg / high_msg use {val} as placeholder for actual value
+
+rules:
+  - feature: trunk_lean_angle
+    ideal_low: 3.0
+    ideal_high: 12.0
+    low_msg: null
+    high_msg: "You're leaning forward too much ({val:.1f}°). Stand tall — target 3–12°. Cue: 'run tall, not bent'."
+    weight: 3
+
+  - feature: max_overstride
+    ideal_low: -0.15
+    ideal_high: 0.05
+    low_msg: null
+    high_msg: "Overstriding detected — foot landing {val:.2f} torso units ahead of hip. Shorten stride and increase cadence to 170–180 spm."
+    weight: 3
+
+  - feature: arm_swing_symmetry
+    ideal_low: 0.0
+    ideal_high: 15.0
+    low_msg: null
+    high_msg: "Arm swing asymmetry: {val:.1f}° difference. Keep elbows at ~90° and swing fore-aft, not across body."
+    weight: 2
+
+  - feature: hip_drop_angle
+    ideal_low: 0.0
+    ideal_high: 5.0
+    low_msg: null
+    high_msg: "Hip drop detected ({val:.1f}°). Strengthen glutes — single-leg squats and clamshells recommended."
+    weight: 2
+
+  - feature: knee_drive_angle
+    ideal_low: 60.0
+    ideal_high: 999.0
+    low_msg: "Insufficient knee drive ({val:.1f}°). Lift knees higher for better propulsion and stride length."
+    high_msg: null
+    weight: 2
+
+  - feature: left_arm_cross
+    ideal_low: -0.05
+    ideal_high: 0.05
+    low_msg: null
+    high_msg: "Left arm crossing body midline ({val:.2f} units). Imagine a vertical line down the center — keep arms on your side."
+    weight: 2
+
+  - feature: right_arm_cross
+    ideal_low: -0.05
+    ideal_high: 0.05
+    low_msg: null
+    high_msg: "Right arm crossing body midline ({val:.2f} units). Keep arms swinging straight fore-aft."
+    weight: 2
+
+  - feature: head_alignment
+    ideal_low: 0.0
+    ideal_high: 10.0
+    low_msg: null
+    high_msg: "Head misalignment detected ({val:.1f}°). Look 10–20m ahead on the road, keep chin level."
+    weight: 1
+
+  - feature: vertical_oscillation
+    ideal_low: 0.0
+    ideal_high: 0.08
+    low_msg: null
+    high_msg: "High vertical oscillation ({val:.3f}). Run more horizontally — push back not up. Cue: 'skim the ground'."
+    weight: 2

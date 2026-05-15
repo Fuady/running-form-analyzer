@@ -1,0 +1,46 @@
+# Feature definitions for running form analysis
+
+sequence_features:
+  - trunk_lean_angle          # forward trunk tilt (degrees)
+  - max_overstride            # foot position ahead of hip (torso units)
+  - arm_swing_symmetry        # L/R arm angle difference (degrees)
+  - hip_drop_angle            # lateral pelvic tilt during stance (degrees)
+  - knee_drive_angle          # front knee lift angle (degrees)
+  - stride_angle              # rear leg extension at push-off (degrees)
+  - rear_knee_angle           # rear knee bend (degrees)
+  - front_knee_angle          # front knee bend (degrees)
+  - head_alignment            # head-to-trunk axis angle (degrees)
+  - vertical_oscillation      # rolling std of hip height (torso units)
+  - left_elbow_angle          # left arm bend (degrees)
+  - right_elbow_angle         # right arm bend (degrees)
+  - left_arm_cross            # left wrist x relative to midline
+  - right_arm_cross           # right wrist x relative to midline
+  - cadence_proxy             # ankle vertical velocity proxy
+  - trunk_lean_angle_vel      # angular velocity of trunk lean
+  - knee_drive_angle_vel      # angular velocity of knee drive
+  - arm_swing_symmetry_vel    # rate of change of arm asymmetry
+
+form_scorer_features:
+  - trunk_lean_angle
+  - max_overstride
+  - arm_swing_symmetry
+  - hip_drop_angle
+  - knee_drive_angle
+  - stride_angle
+  - vertical_oscillation
+  - left_elbow_angle
+  - right_elbow_angle
+  - head_alignment
+  - left_arm_cross
+  - right_arm_cross
+
+ideal_ranges:
+  trunk_lean_angle:    [3, 12]        # degrees
+  max_overstride:      [-0.15, 0.05]  # torso units
+  arm_swing_symmetry:  [0, 15]        # degrees
+  hip_drop_angle:      [0, 5]         # degrees
+  knee_drive_angle:    [60, 999]      # degrees
+  left_arm_cross:      [-0.05, 0.05]  # torso units
+  right_arm_cross:     [-0.05, 0.05]  # torso units
+  head_alignment:      [0, 10]        # degrees
+  vertical_oscillation:[0, 0.08]      # torso units
